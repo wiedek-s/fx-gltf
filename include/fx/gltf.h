@@ -20,7 +20,10 @@
 #define FX_GLTF_HAS_CPP_17
 #include <string_view>
 #endif
-
+//stupid name conflict with X.h
+#ifdef None
+#undef None
+#endif
 namespace fx
 {
 namespace base64
@@ -1926,3 +1929,7 @@ inline void FormatException(std::string & output, std::exception const & ex, int
 } // namespace fx
 
 #undef FX_GLTF_HAS_CPP_17
+//redefine None for X.h
+#ifndef None
+#define None 0L
+#endif
